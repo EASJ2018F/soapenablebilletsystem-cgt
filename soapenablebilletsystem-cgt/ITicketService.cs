@@ -5,12 +5,13 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using BilletLib;
 
 namespace soapenablebilletsystem_cgt
 {
     [ServiceContract]
     public interface ITicketService
     {
-
+        Ticket IssueTicket(TicketOrder o);
     }
 }
