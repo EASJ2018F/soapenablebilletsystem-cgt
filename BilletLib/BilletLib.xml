@@ -4,5 +4,90 @@
         <name>BilletLib</name>
     </assembly>
     <members>
+        <member name="T:BilletLib.Ticket">
+            <summary>
+            Ticket represents an issued ticket.
+            </summary>
+        </member>
+        <member name="P:BilletLib.Ticket.Timestamp">
+            <summary>
+            The time when the ticket was ordered.
+            </summary>
+        </member>
+        <member name="P:BilletLib.Ticket.LicensePlate">
+            <summary>
+            The license plate number of the vehicle the Ticket is for.
+            </summary>
+        </member>
+        <member name="P:BilletLib.Ticket.VehicleType">
+            <summary>
+            The type of vehicle the ticket is for.
+            Allowable values are defined by the ITicketIssuer implementation.
+            </summary>
+        </member>
+        <member name="P:BilletLib.Ticket.Price">
+            <summary>
+            The final price that must be paid for the ticket.
+            </summary>
+        </member>
+        <member name="T:BilletLib.ITicketIssuer">
+            <summary>
+            ITicketIssuer defines the interface that ticket issuer implementations must satisfy.
+            </summary>
+        </member>
+        <member name="M:BilletLib.ITicketIssuer.IssueTicket(BilletLib.TicketOrder)">
+            <summary>
+            IssueTicket issues a Ticket based on an incoming TicketOrder
+            according to its own rules, discounts, etc.
+            </summary>
+        </member>
+        <member name="T:BilletLib.TicketIssuers.OeresundTicketIssuer">
+            <summary>
+            OeresundTicketIssuer is an ITicketIssuer implementation for Øresundbroen.
+            </summary>
+        </member>
+        <member name="M:BilletLib.TicketIssuers.OeresundTicketIssuer.IssueTicket(BilletLib.TicketOrder)">
+            <summary>
+            IssueTicket issues a ticket for Øresundbroen.
+            Permitted vehicle types for the TicketOrder are: "car", "motorcycle".
+            </summary>
+        </member>
+        <member name="T:BilletLib.TicketIssuers.StorebaeltTicketIssuer">
+            <summary>
+            StorebaeltTicketIssuer is an ITicketIssuer implementation for Storebæltsbroen.
+            </summary>
+        </member>
+        <member name="M:BilletLib.TicketIssuers.StorebaeltTicketIssuer.IssueTicket(BilletLib.TicketOrder)">
+            <summary>
+            IssueTicket issues a ticket for Storebæltsbroen.
+            Permitted vehicle types for the TicketOrder are: "car", "motorcycle".
+            </summary>
+        </member>
+        <member name="T:BilletLib.TicketOrder">
+            <summary>
+            TicketOrder represents an incoming request to issue a Ticket.
+            </summary>
+        </member>
+        <member name="P:BilletLib.TicketOrder.Timestamp">
+            <summary>
+            The time when the ticket was ordered.
+            </summary>
+        </member>
+        <member name="P:BilletLib.TicketOrder.LicensePlate">
+            <summary>
+            The license plate number of the vehicle the Ticket is for.
+            </summary>
+        </member>
+        <member name="P:BilletLib.TicketOrder.VehicleType">
+            <summary>
+            The type of vehicle the ticket is for.
+            Allowable values are defined by the ITicketIssuer implementation.
+            </summary>
+        </member>
+        <member name="P:BilletLib.TicketOrder.BroBizz">
+            <summary>
+            Whether or not the vehicle is equipped with a BroBizz device.
+            </summary>
+        </member>
     </members>
 </doc>
