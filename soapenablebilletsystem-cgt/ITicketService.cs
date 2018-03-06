@@ -12,6 +12,7 @@ namespace soapenablebilletsystem_cgt
     [ServiceContract]
     public interface ITicketService
     {
+        [OperationContract]
         Ticket IssueTicket(TicketOrder o);
     }
 }
